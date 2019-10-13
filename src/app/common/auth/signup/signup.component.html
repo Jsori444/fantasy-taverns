@@ -1,0 +1,25 @@
+<h2>Login</h2>
+<form>
+  <div class="row">
+    <div class="col-md-6">
+        <form name='SignupForm'>
+            <label>User Name</label>
+            <input type="text" class="form-control" [(ngModel)]="userName" name="userName" />
+            <label>Password</label>
+            <input type="password" class="form-control" [(ngModel)]="password" name="password" />
+        </form>
+    </div>
+    <div class="col-md-6"></div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-6">
+        <button type="submit" class="btn btn-primary" *ngIf="!LoggedIn" (click)=signup()>
+            Signup
+        </button>
+        <button class="btn btn-primary" routerLink="/login">
+            Cancel
+        </button>
+    </div>
+  </div>
+</form>

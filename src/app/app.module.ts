@@ -12,10 +12,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './common/auth/login/login.component';
 import { TokenInterceptor } from './common/auth/token.interceptor';
 import { HomeComponent } from './home.component';
+import { SignupComponent } from './common/auth/signup/signup.component';
 
 @NgModule({
     bootstrap: [AppComponent],
-    declarations: [AppComponent, LoginComponent, HomeComponent],
+    declarations: [AppComponent, LoginComponent, HomeComponent, SignupComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
