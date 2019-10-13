@@ -1,20 +1,19 @@
 <h2>Login</h2>
-<form>
+<form #SignupForm='ngForm' (ngSubmit)=signup(SignupForm)>
   <div class="row">
     <div class="col-md-6">
-        <form name='SignupForm'>
-            <label>User Name</label>
-            <input type="text" class="form-control" [(ngModel)]="userName" name="userName" />
-            <label>Password</label>
-            <input type="password" class="form-control" [(ngModel)]="password" name="password" />
-        </form>
+      <label>User Name</label>
+      <input type="text" class="form-control" [(ngModel)]="userName" name="userName" />
+      <label>Password</label>
+      <input type="password" class="form-control" [(ngModel)]="password" name="password" />
     </div>
     <div class="col-md-6"></div>
   </div>
   <br />
   <div class="row">
     <div class="col-md-6">
-        <button type="submit" class="btn btn-primary" *ngIf="!LoggedIn" (click)=signup()>
+        <!--<button type="submit" class="btn btn-primary" *ngIf="!LoggedIn" (click)=signup()> -->
+        <button type="submit" class="btn btn-primary" *ngIf="!LoggedIn">  
             Signup
         </button>
         <button class="btn btn-primary" routerLink="/login">

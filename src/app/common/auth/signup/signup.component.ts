@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -13,11 +14,11 @@ export class SignupComponent implements OnInit {
 
   constructor() {}
 
-  signup(): void {
+  signup(formName: NgForm): void {
       console.log('New user sign up');
       console.log('User = '+this.userName);
       console.log('Password = '+this.password);
-      //this.SubmitForm.reset();
+      formName.reset();
   }
   ngOnInit() {
   }
