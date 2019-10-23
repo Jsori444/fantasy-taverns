@@ -11,6 +11,7 @@ import { NgForm } from '@angular/forms';
 export class SignupComponent implements OnInit {
   userName = '';
   password = '';
+  roleId:number;
 
   constructor() {}
 
@@ -20,7 +21,18 @@ export class SignupComponent implements OnInit {
       console.log('Password = '+this.password);
       formName.reset();
   }
+  
   ngOnInit() {
+
+  }
+
+  setTavernRole(Id:number){
+    console.log('role id is ',Id)
+    this.roleId = Id;
+  }
+
+  getTavernRole(): number{
+    return this.roleId;
   }
 
 }
