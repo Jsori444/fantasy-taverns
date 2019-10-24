@@ -32,12 +32,10 @@
         <h2>DropDown Menu of Taverns here</h2>
         <!--dropdown begin-->
         <select name="tavernName">
-            <option value="Tavern1">Tavern 1</option>
-            <option value="Tavern2">Tavern 2</option>
-            <option value="Tavern3">Tavern 3</option>
-            <option value="Cheers">Cheers</option>
-          </select>
-        </div>
+          <!-- need to ngFor options -->
+          <option *ngFor="let t of tavernList" value="{{ t.id }}">{{ t.name }}</option>
+        </select>
+      </div>
     </div>
   <br>
   <div class="row">
