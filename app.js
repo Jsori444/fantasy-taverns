@@ -3,6 +3,7 @@ const express = require('express');
 require('dotenv').config();
 require('./global_functions');
 const userController = require('./controllers/UsersController');
+const tavernsController = require('./controllers/TavernsController');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const JwtStrategy = require('passport-jwt').Strategy;
@@ -68,6 +69,7 @@ app.use((req, res, next) => {
 
 app.post('/users', userController.create);
 app.post('/login', userController.login);
+app.get('/taverns', tavernsController.getAll);
 
 console.log('SERVER READY');
 module.exports = app;

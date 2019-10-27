@@ -3,18 +3,22 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { NgForm } from '@angular/forms';
 import { TavernItem } from '../../../obj_templates/tavern';
+import { TavernsService, ITavern } from '../../../services/taverns.service'
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
 })
 export class SignupComponent implements OnInit {
+
+  // init vars
   userName = '';
   password = '';
   roleId:number;
-  tavernList:TavernItem[];
+  //tavernList:TavernItem[];
+  tavernList: ITavern[];
 
-  constructor() {}
+  constructor(private tavernsService:TavernsService) {}
 
   signup(formName: NgForm): void {
       console.log('New user sign up');
@@ -24,25 +28,26 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getTaverns();
     // DELETE ME once service is created to get the tavernList
-    this.tavernList = [
-      {
-        name:"Cheers",
-        id:1
-      },
-      {
-        name:"No name Bar",
-        id:2
-      },
-      {
-        name:"Fancy Pants",
-        id:3
-      },
-      {
-        name:"Moe's Tavern",
-        id:4
-      }
-    ]
+    // this.tavernList = [
+    //   {
+    //     name:"Cheers",
+    //     id:1
+    //   },
+    //   {
+    //     name:"No name Bar",
+    //     id:2
+    //   },
+    //   {
+    //     name:"Fancy Pants",
+    //     id:3
+    //   },
+    //   {
+    //     name:"Moe's Tavern",
+    //     id:4
+    //   }
+    // ]
   }
 
   setTavernRole(Id:number){
@@ -55,7 +60,13 @@ export class SignupComponent implements OnInit {
   }
 
   getTaverns(){
-    return this.tavernList;
+    console.log('inside signup.component - getTaverns');
 
+    this.tavernsService.getAll().subscribe((Tav) => {
+      console.log('inside signup.component - subscribe');
+      this.tavernList = Tav;
+    });
+    console.log("Inside signup.components Tavern List = ",this.tavernList);
+    return this.tavernList;
   }
 }
